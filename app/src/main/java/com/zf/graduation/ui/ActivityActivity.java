@@ -29,6 +29,7 @@ public class ActivityActivity extends ActionBarActivity {
         setContentView(R.layout.activity_activity);
         setActivityList();
         showActivity();
+        Toast.makeText(this,"df",Toast.LENGTH_SHORT).show();
     }
 
     @Override

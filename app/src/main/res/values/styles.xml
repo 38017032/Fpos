@@ -17,4 +17,17 @@
         <item name="android:src">@mipmap/ic_add_black_48dp</item>
         <item name="android:showAsAction"></item>
     </style>
+
+    <style name="MaterialTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/MaterialActionBar</item>
+    </style>
+    <style name="MaterialActionBar" parent="android:Widget.ActionBar">
+        <item name="android:background">@color/bg</item>
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="android:titleTextStyle">@style/MaterialActionBar.TitleText</item>
+    </style>
+    <style name="MaterialActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

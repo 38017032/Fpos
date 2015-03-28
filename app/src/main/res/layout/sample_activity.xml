@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/main_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--第一层是最开始显示的主页-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="你是谁"/>
+    </LinearLayout>
+
+    <!--第二层显示的是滑动以后的情况-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:background="#ffffff">
+        <RelativeLayout
+            android:id="@+id/user_info"
+            android:layout_width="match_parent"
+            android:layout_height="96dp">
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@mipmap/icon3"
+                android:layout_marginLeft="16dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Egos"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/activities"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#000000"
+            android:text="活动"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:textColor="#ffffff"/>
+        <ListView
+            android:id="@+id/act_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"/>
+
+
+        <TextView
+            android:id="@+id/group"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#000000"
+            android:text="组"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:textColor="#ffffff"/>
+        <ListView
+            android:id="@+id/group_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/message_image"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@mipmap/ic_email_black_48dp"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消息"
+                android:layout_toRightOf="@id/message_image"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/setting_image"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@mipmap/ic_brightness_high_black_48dp"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置"
+                android:layout_toRightOf="@id/setting_image"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>

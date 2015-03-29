@@ -2,6 +2,7 @@ package com.zf.graduation.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +35,10 @@ public class MainActivity extends ActionBarActivity {
         setupLayout = (RelativeLayout)findViewById(R.id.setting);
 
         showOverflowButton();
+
+        ActionBar bar = getSupportActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
+        bar.setHomeButtonEnabled(true);
 
         groupText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,12 +95,6 @@ public class MainActivity extends ActionBarActivity {
         return  true;
     }
 
-    /*
-        @Override
-        public boolean onCreatePanelMenu(int featureId, Menu menu) {
-            getMenuInflater().inflate(R.menu.actionbar,menu);
-            return true;
-        }*/
     public void showOverflowButton(){
         try {
             ViewConfiguration config = ViewConfiguration.get(this);

@@ -1,16 +1,22 @@
 package com.zf.graduation.ui;
 
-import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
 import com.ikimuhendis.ldrawer.DrawerArrowDrawable;
 import com.zf.graduation.R;
+
+import java.lang.reflect.Field;
 
 /**
  * Created by fan on 2015/3/28.
@@ -23,6 +29,7 @@ public class SampleActivity extends Activity {
     private RelativeLayout setupLayout;
 
     private DrawerLayout mainLayout;
+    private LinearLayout layout;
 
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerArrowDrawable drawerArrow;
@@ -37,6 +44,7 @@ public class SampleActivity extends Activity {
         setupLayout = (RelativeLayout)findViewById(R.id.setting);
 
         mainLayout = (DrawerLayout)findViewById(R.id.main_layout);
+        layout = (LinearLayout)findViewById(R.id.layout);
         ActionBar bar = getActionBar();
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
@@ -63,7 +71,39 @@ public class SampleActivity extends Activity {
         };
         mainLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
-
-
     }
+
+    public void showOverflowButton(){
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception ex) {
+            // ignore
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == android.R.id.home){
+            // 点击ActionBar左边的时候滑动效果
+            if (mainLayout.isDrawerOpen(layout)) {
+                mainLayout.closeDrawer(layout);
+            } else {
+                mainLayout.openDrawer(layout);
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

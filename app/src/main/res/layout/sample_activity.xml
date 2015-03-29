@@ -16,6 +16,7 @@
 
     <!--第二层显示的是滑动以后的情况-->
     <LinearLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"

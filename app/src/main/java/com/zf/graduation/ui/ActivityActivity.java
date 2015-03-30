@@ -2,6 +2,7 @@ package com.zf.graduation.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
@@ -29,7 +30,10 @@ public class ActivityActivity extends ActionBarActivity {
         setContentView(R.layout.activity_activity);
         setActivityList();
         showActivity();
-        Toast.makeText(this,"df",Toast.LENGTH_SHORT).show();
+        ActionBar bar = getSupportActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
+        bar.setHomeButtonEnabled(true);
+        bar.setTitle("我参加的活动");
     }
 
     @Override

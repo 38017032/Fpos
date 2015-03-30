@@ -2,6 +2,7 @@ package com.zf.graduation.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
@@ -30,6 +31,10 @@ public class GroupActivity extends ActionBarActivity {
         setContentView(R.layout.group_activity);
         setGroupList();
         showGroup();
+        ActionBar bar = getSupportActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
+        bar.setHomeButtonEnabled(true);
+        bar.setTitle("我拥有的组");
     }
 
     @Override

@@ -134,34 +134,44 @@ public class SampleActivity extends Activity {
                 mainLayout.openDrawer(layout);
             }
         }
+        else{
+            if(id == R.id.create_activity){
+                Intent createActivityIntent = new Intent(SampleActivity.this, CreateActivityActivity.class);
+                startActivity(createActivityIntent);
+            }
+            else if(id == R.id.create_group){
+                Intent createActivityIntent = new Intent(SampleActivity.this, CreateGroupActivity.class);
+                startActivity(createActivityIntent);
+            }
+        }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
-            // 点击ActionBar左边的时候滑动效果
-            if (mainLayout.isDrawerOpen(layout)) {
-                mainLayout.closeDrawer(layout);
-            } else {
-                mainLayout.openDrawer(layout);
-            }
-            return true;
-        }else {
-            switch (item.getItemId()) {
-                case 0:
-                    Intent createActivityIntent = new Intent(SampleActivity.this, CreateActivityActivity.class);
-                    startActivity(createActivityIntent);
-                    break;
-                case 1:
-                    Intent createGroupIntent = new Intent(SampleActivity.this, CreateGroupActivity.class);
-                    startActivity(createGroupIntent);
-                    break;
-                default:
-                    break;
-            }
-            return true;
-        }
-    }
+//    @Override
+//    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+//        int id = item.getItemId();
+//        if (id == android.R.id.home) {
+//            // 点击ActionBar左边的时候滑动效果
+//            if (mainLayout.isDrawerOpen(layout)) {
+//                mainLayout.closeDrawer(layout);
+//            } else {
+//                mainLayout.openDrawer(layout);
+//            }
+//            return true;
+//        }else {
+//            switch (item.getItemId()) {
+//                case 0:
+//                    Intent createActivityIntent = new Intent(SampleActivity.this, CreateActivityActivity.class);
+//                    startActivity(createActivityIntent);
+//                    break;
+//                case 1:
+//                    Intent createGroupIntent = new Intent(SampleActivity.this, CreateGroupActivity.class);
+//                    startActivity(createGroupIntent);
+//                    break;
+//                default:
+//                    break;
+//            }
+//            return true;
+//        }
+//    }
 }
